@@ -28,7 +28,7 @@ namespace HardwareStore
             services.AddControllersWithViews();
             services.AddDbContext<StoreDbContext>(options =>
             {
-                options.UseSqlServer(this.Configuration["ConnectionsStrings:HardwareStoreConnection"]);
+                options.UseSqlServer(this.Configuration["ConnectionStrings:HardwareStoreConnection"]);
             });
             services.AddScoped<IStoreRepository, EFStoreRepository>();
         }
