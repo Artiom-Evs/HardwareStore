@@ -48,6 +48,8 @@ namespace HardwareStore
             {
                 endpoints.MapDefaultControllerRoute();
             });
+
+            SeedData.EnsurePopulated(app);
         }
     }
 }
