@@ -1,12 +1,58 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap-grid.min.css" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-secondary border-bottom mb-3">
+            <div class="container">
+                <a class="navbar-brand text-light"
+                   asp-area=""
+                   asp-controller="Home"
+                   asp-action="Index">Hardware Store</a>
+                <button class="navbar-toggler badge-light"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row m-1 p-1">
+            <div id="categories" class="col-xs-3">
+                Put something useful here later
+            </div>
+            <div class="col-xs-9">
+                @RenderBody()
+            </div>
+        </div>
     </div>
+    <footer class="border-top text-muted m-1 p-1">
+        <div class="container">
+            &copy; 2021 - HardwareStore
+        </div>
+    </footer>
 </body>
 </html>

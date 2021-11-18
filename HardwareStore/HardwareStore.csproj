@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\lib\jquery - Копировать\**" />
+    <Content Remove="wwwroot\lib\jquery - Копировать\**" />
+    <EmbeddedResource Remove="wwwroot\lib\jquery - Копировать\**" />
+    <None Remove="wwwroot\lib\jquery - Копировать\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.11">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

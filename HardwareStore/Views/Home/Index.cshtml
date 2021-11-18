@@ -1,9 +1,24 @@
-﻿@model IQueryable<Product>
-@foreach (Product p in Model)
-{
+﻿@model ProductsListViewModel
+
 <div>
-    <h3>@p.Name</h3>
-    @p.Description
-    <h4>@p.Price.ToString("C")</h4>
-</div>
+@foreach (Product p in Model.Products)
+{
+    <div class="card m-1 p-1">
+        <div class="p-1">
+            <h4>@p.Name</h4>
+            <span class="badge badge-pill badge-primary"
+                  style="float:right">
+                <small>@p.Price.ToString("C")</small>
+            </span>
+            <div class="card-text p-1">@p.Description</div>
+        </div>
+    </div>
 }
+</div>
+<div page-model="@Model.PaginingInfo"
+     page-action="Index"
+     page-classes-enabled="true"
+     page-class="btn"
+     page-class-selected="btn-primary"
+     page-class-normal="btn-secondary"
+     class="btn-group m-1"></div>
