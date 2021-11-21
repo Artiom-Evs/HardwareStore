@@ -46,7 +46,11 @@ namespace HardwareStore
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("pagination", "Products/Page{productPage}", new { Controller = "Home", Action = "Index" });
+                endpoints.MapControllerRoute("catpage", "{category}/Page{productPage:int}", new { Controller = "Home", Action = "Index" });
+                endpoints.MapControllerRoute("page", "Page{productPage:int}", new { Controller = "Home", Action = "Index", productPage = 1 });
+                endpoints.MapControllerRoute("category", "{category}", new { Controller = "Home", Action = "Index", productPage = 1 });
+                endpoints.MapControllerRoute("pagination", "Products/Page{productPage}", new { Controller = "Home", Action = "Index", productPage = 1 });
+                endpoints.MapControllerRoute("home", "/", new { Controller = "Home", Action = "Index" });
                 endpoints.MapDefaultControllerRoute();
             });
 

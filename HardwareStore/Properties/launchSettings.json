@@ -1,9 +1,9 @@
-﻿{
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://192.168.0.106:42523",
+      "applicationUrl": "http://192.168.0.102:42523",
       "sslPort": 0
     }
   },
@@ -17,12 +17,22 @@
     },
     "HardwareStore": {
       "commandName": "Project",
-      "dotnetRunMessages": "true",
       "launchBrowser": true,
-      "applicationUrl": "http://192.168.0.106:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "http://192.168.0.102:5000",
+      "dotnetRunMessages": "true"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "launchBrowser": true,
+      "launchUrl": "http://192.168.0.102:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://192.168.0.102:5000"
+      },
+      "distributionName": ""
     }
   }
 }

@@ -14,9 +14,8 @@
         <nav class="navbar navbar-expand-sm navbar-light bg-secondary border-bottom mb-3">
             <div class="container">
                 <a class="navbar-brand text-light"
-                   asp-area=""
-                   asp-controller="Home"
-                   asp-action="Index">Hardware Store</a>
+                    asp-area=""
+                    asp-route="home">Hardware Store</a>
                 <button class="navbar-toggler badge-light"
                         type="button"
                         data-toggle="collapse"
@@ -30,10 +29,10 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-light" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link text-light" asp-route="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link text-light" asp-route="home">Home</a>
                     </li>
                 </ul>
             </div>
@@ -41,10 +40,10 @@
     </header>
     <div class="container">
         <div class="row m-1 p-1">
-            <div id="categories" class="col-xs-3">
-                Put something useful here later
+            <div id="categories" class="col-lg-3">
+                <vc:navigation-menu />
             </div>
-            <div class="col-xs-9">
+            <div class="col-lg-9">
                 @RenderBody()
             </div>
         </div>
