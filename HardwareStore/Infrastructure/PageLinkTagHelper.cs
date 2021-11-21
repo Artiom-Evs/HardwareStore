@@ -27,6 +27,8 @@ namespace HardwareStore.Infrastructure
         public ViewContext ViewContext { get; set; }
         public PaginingInfo PageModel { get; set; }
         public string PageAction { get; set; }
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> PageUrlValues { get; set; } = new();
         public bool PageClassesEnabled { get; set; } = false;
         public string PageClass { get; set; }
         public string PageClassNormal { get; set; }
@@ -40,7 +42,8 @@ namespace HardwareStore.Infrastructure
             for (int i = 1; i <= PageModel.TotalPages; i++)
             {
                 TagBuilder tag = new("a");
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { productPage = i });
+                PageUrlValues["productPage"] = i;
+                tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
 
                 if (PageClassesEnabled)
                 {

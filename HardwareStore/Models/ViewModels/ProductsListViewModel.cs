@@ -11,5 +11,6 @@ namespace HardwareStore.Models.ViewModels
     {
         public IEnumerable<Product> Products { get; set; }
         public PaginingInfo PaginingInfo { get; set; }
+        public string CurrentCategory { get; set; }
     }
 }

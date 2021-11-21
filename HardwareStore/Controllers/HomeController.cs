@@ -17,13 +17,14 @@ namespace HardwareStore.Controllers
         public HomeController(IStoreRepository repository)
         {
             this.repository = repository;
-            PageSize = 15;
+            PageSize = 10;
         }
 
-        public IActionResult Index(int productPage = 1) =>
+        public IActionResult Index(string category, int productPage = 1) =>
             View(new ProductsListViewModel
             {
                 Products = repository.Products
+                    .Where(p => category == null || p.Category == category)
                     .OrderBy(p => p.ProductID)
                     .Skip((productPage - 1) * PageSize)
                     .Take(PageSize),
@@ -31,9 +32,9 @@ namespace HardwareStore.Controllers
                 {
                     CurrentPage = productPage,
                     ItemsPerPage = PageSize,
-                    TotalItems = repository.Products.Count()
-                }
+                    TotalItems = category == null ? repository.Products.Count() : repository.Products.Where(p => p.Category == category).Count()
+                }, 
+                CurrentCategory = category
             });
-
     }
 }
