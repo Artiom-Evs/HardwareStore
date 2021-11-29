@@ -31,6 +31,7 @@ namespace HardwareStore
                 options.UseSqlServer(this.Configuration["ConnectionStrings:HardwareStoreConnection"]);
             });
             services.AddScoped<IStoreRepository, EFStoreRepository>();
+            services.AddRazorPages();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -52,6 +53,7 @@ namespace HardwareStore
                 endpoints.MapControllerRoute("pagination", "Products/Page{productPage}", new { Controller = "Home", Action = "Index", productPage = 1 });
                 endpoints.MapControllerRoute("home", "/", new { Controller = "Home", Action = "Index" });
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
 
             SeedData.EnsurePopulated(app);

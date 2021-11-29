@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://192.168.0.102:42523",
+      "applicationUrl": "http://localhost:42523",
       "sslPort": 0
     }
   },
@@ -21,16 +21,16 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://192.168.0.102:5000",
+      "applicationUrl": "http://localhost:5000",
       "dotnetRunMessages": "true"
     },
     "WSL": {
       "commandName": "WSL2",
       "launchBrowser": true,
-      "launchUrl": "http://192.168.0.102:5000",
+      "launchUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_URLS": "http://192.168.0.102:5000"
+        "ASPNETCORE_URLS": "http://localhost:5000"
       },
       "distributionName": ""
     }

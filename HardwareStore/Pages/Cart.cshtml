@@ -1,0 +1,44 @@
+﻿@page
+@model CartModel
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h2>Your Cart</h2>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th class="text-right">Price</th>
+                    <th class="text-right">Subtotal</th>
+                </tr> 
+            </thead>
+            <tbody>
+@foreach (var line in Model.Cart.Lines)
+{
+                <tr>
+                    <td>@line.Product.Name</td>
+                    <td>@line.Quantity</td>
+                    <td class="text-right">@line.Product.Price.ToString("C")</td>
+                    <td class="text-right">@(line.Product.Price * line.Quantity).ToString("C")</td>
+                </tr>
+}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total Price</td>
+                    <td>@Model.Cart.GetTotalCost().ToString("C")</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="card-footer text-center">
+        <a class="btn btn-primary"
+           href="@Model.ReturnUrl">Continue shopping</a>
+    </div>
+</div>
