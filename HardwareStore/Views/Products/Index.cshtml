@@ -1,0 +1,51 @@
+﻿@model ProductsListViewModel
+
+@{
+    ViewData["Title"] = "Products";
+    Layout = "_AdminLayout";
+}
+
+<div class="card">
+    <div class="card-header text-center">
+        <h2>Products</h2>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Products.First().Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.Products.First().Category)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+@foreach (var item in Model.Products) {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Category)</td>
+                    <td>
+                        <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.ProductID">Edit</a>
+                        <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.ProductID">Details</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+                    </td>
+                </tr>
+}
+            </tbody>
+        </table>
+        <div class="text-center">
+            <div page-model="@Model.PaginingInfo"
+                 page-action="Index"
+                 page-classes-enabled="true"
+                 page-class="btn"
+                 page-class-selected="btn-primary"
+                 page-class-normal="btn-secondary"
+                 page-url-category="@Model.CurrentCategory"
+                 class="btn-group m-1"></div>
+        </div>
+    </div>
+    <div class="card-footer text-center">
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
+    </div>
+</div>
+
+

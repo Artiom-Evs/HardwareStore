@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"] - Admin - HardwareStore</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-secondary border-bottom mb-3">
+            <div class="container">
+                <a class="navbar-brand text-light"
+                    asp-controller="Admin"
+                    asp-action="Index">Admin - Hardware Store</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer class="border-top text-muted m-1 p-1">
+        <div class="container">
+            &copy; 2021 - HardwareStore
+        </div>
+    </footer>
+</body>
+</html>
