@@ -9,26 +9,27 @@ namespace HardwareStore.Models
     {
         private const string adminRoleName = "admin";
         private const string adminName = "Admin";
-        private const string adminPassword = "theHardestPasswordInTheWorld124$";
+        private const string adminPassword = "qwertY123#";
 
         public static async void EnsurePopulated(IApplicationBuilder app)
         {
             UserManager<IdentityUser> userManager = app.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
             RoleManager<IdentityRole> roleManager = app.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            IdentityResult result;
 
             IdentityRole role = await roleManager.FindByNameAsync(adminRoleName);
             if (role == null)
             {
                 role = new(adminRoleName);
-                await roleManager.CreateAsync(role);
+                result = await roleManager.CreateAsync(role);
             }
 
             IdentityUser user = await userManager.FindByNameAsync(adminName);
             if (user == null)
             {
                 user = new(adminName);
-                await userManager.CreateAsync(user, adminPassword);
-                await userManager.AddToRoleAsync(user, adminRoleName);
+                result = await userManager.CreateAsync(user, adminPassword);
+                result = await userManager.AddToRoleAsync(user, adminRoleName);
             }
         }
     }
