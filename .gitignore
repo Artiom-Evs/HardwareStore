@@ -364,3 +364,4 @@ FodyWeavers.xsd
 /HardwareStore/wwwroot/lib
 /HardwareStore/obj/*
 /HardwareStore/bin/*
+/HardwareStore/wwwroot/css

@@ -14,7 +14,7 @@ namespace HardwareStore.Models
     {
         public List<CartLine> Lines { get; set; } = new();
 
-        public void AddLine(Product product, int quantity)
+        public virtual  void AddLine(Product product, int quantity)
         {
             CartLine line = Lines.FirstOrDefault(l => l.Product.ProductID == product.ProductID);
 
@@ -32,7 +32,7 @@ namespace HardwareStore.Models
             }
         }
 
-        public void RemoveLine(Product product)
+        public virtual void RemoveLine(Product product)
         {
             CartLine line = Lines.First(l => l.Product.ProductID == product.ProductID);
 
@@ -42,7 +42,7 @@ namespace HardwareStore.Models
             }
         }
 
-        public void Clear()
+        public virtual void Clear()
         {
             Lines.Clear();
         }

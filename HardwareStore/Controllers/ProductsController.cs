@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HardwareStore.Models;
 using HardwareStore.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HardwareStore.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class ProductsController : Controller
     {
         private readonly StoreDbContext _context;

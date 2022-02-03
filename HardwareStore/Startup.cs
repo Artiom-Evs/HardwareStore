@@ -1,4 +1,5 @@
 using HardwareStore.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -33,6 +34,8 @@ namespace HardwareStore
                 options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<AppIdentityDbContext>();
+            services.AddScoped<Cart>(sc => SessionCart.GetCart(sc));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
