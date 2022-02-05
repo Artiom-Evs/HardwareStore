@@ -1,0 +1,19 @@
+﻿@model Cart
+
+<div class="row">
+@if (Model.Lines.Any()) {
+    <div class="col">
+        <small class="navbar-text">
+            <b>Товаров: </b>@Model.Lines.Sum(p => p.Quantity).ToString()<br/>
+            @Model.GetTotalCost().ToString("C")
+        </small>
+    </div>
+}
+    <div class="col-2">
+        <a class="btn btn-mb btn-secondary navbar-btn" asp-page="/Cart" 
+            asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
+            <i class="fa fa-shopping-cart fa-align-center"></i>
+        </a>
+    </div>
+</div>
+
